@@ -5,7 +5,6 @@ function getHtml(d) {
     alert(d.innerHTML);
     d.style.color = "orange";
     d.innerHTML = "GeeksforGeeks";
-    d.innerHTML = "GeeksforGeeks";
     //console.log(Element)
 }
 //elemento.innerHTML = "GeeksforGeeks";
