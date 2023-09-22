@@ -1,0 +1,36 @@
+@charset "UTF 8";
+.c, #bt{
+    display: flex;
+    width: 200px;
+    height: 25px;
+    border: 5px solid rgb(165, 165, 165);
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5px;
+    cursor: pointer;
+    color: rgb(34, 34, 34);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.637);
+}
+.c1{
+    background: rgb(143, 143, 143);
+}
+.c2{
+    background: rgb(88, 88, 88);
+}
+.c:hover{
+    border: 5px solid rgb(212, 78, 78);
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.637);
+}
+.impo{
+    background-color: white !important;
+    color: gray !important;
+    border-color: red !important;
+}
+#bt:hover{
+    background: gray;
+    color: blue;
+}
+
+
