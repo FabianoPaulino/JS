@@ -1,0 +1,98 @@
+@charset "UTF-8";
+*{
+    margin: 0px;
+    padding: 0px;
+    font: 1.0em Arial;
+}
+main{
+    position: relative;
+}
+.box{
+    padding-top: 50px;
+    position: absolute;
+    width: 300px;
+    height: 600px;
+    border: 5px solid black;
+    border-radius: 10px;
+    background: rgb(228, 228, 228);
+}
+#newboxfunctions{
+    left: 50px;
+    top: 5px
+}
+#boxcurse{
+    padding-top: 50px;
+    left: 450px;
+    top: 5px;
+}
+button{
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    background: rgb(30, 150, 248);
+    color: rgb(243, 243, 243);
+    border: 1px solid blue;
+    border-radius: 5px;
+    margin: 5px;
+    font: 0.9em Arial;
+}
+button:hover{
+    text-shadow: 1px 1px 10px rgb(3, 4, 53);
+    font-size: 1.001em;
+    transition-duration: 0.3s;
+    
+}
+#btnaddcurseafter{
+    left: 50px;
+    top: 210px;
+}
+#btnaddcursebefore{
+    left: 50px;
+    top: 255px;
+}
+#btnremovecurse{
+    left: 50px;
+    top: 300px;
+}
+#btnselectedcurse{
+    left: 50px;
+    top: 345px;
+}
+#lb1{
+    position: absolute;
+    top: 160px;
+    left: 85px;
+    text-shadow: 1px 1px 10px rgb(255, 255, 255);
+    font: 1.1em Arial;
+}
+#inmcurse{
+    position: absolute;
+    width: 180px;
+    height: 22px;
+    top: 185px;
+    left: 53px;
+    align-items: center;
+    border: 2px solid rgb(140, 186, 255);
+    border-radius: 2px;
+}
+#el{
+    position: relative;
+    display: block;
+    height: 30px;
+    width: 240px;
+    background: rgb(184, 184, 184);
+    color: rgb(46, 46, 46);
+    border: 3px solid rgb(85, 85, 85);
+    border-radius: 5px;
+    padding-top: 13px;
+    padding-left: 10px;
+    margin-left: 22px;
+    margin-top: 5px;
+}
+.icheck{
+    position: absolute;
+    top: 35%;
+    left: 80%;
+}
+
+
