@@ -1,0 +1,31 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border-radius: 5px;
+}
+.green{
+    border: 2px solid green;
+    background: rgba(0, 128, 0, 0.37);
+}
+.blue{
+    border: 2px solid blue;
+    background: rgba(0, 30, 128, 0.37);
+}
+.red{
+    border: 2px solid red;
+    background: rgba(128, 4, 0, 0.37);
+}
+div{
+    margin: 10px;
+    padding-left: 5px;
+}
+button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 25px;
+    font-size: 1.1em;
+    border: 0px;
+    background: blue;
+    color: white;
+}
