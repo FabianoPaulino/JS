@@ -1,0 +1,102 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.08em;
+}
+body{
+    background-image: linear-gradient(top, rgb(104, 104, 255), rgb(209, 209, 255));
+}
+.selected{
+    border: 2px solid black !important;
+    background: rgb(147, 147, 255);
+}
+body{
+    position: relative;
+}
+#div1{
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 20%);
+    border: 2px solid rgb(66, 14, 45);
+    border-radius: 10px;
+    background-image: linear-gradient(to top, rgb(104, 104, 255), rgb(209, 209, 255));
+}
+.botao{
+    width: 250px;
+    height: 20px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 22px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+.botao:hover{
+    text-shadow: 2px 2px 10px black;
+    cursor: pointer;
+}
+button{
+    position: absolute;
+}
+button:hover{
+    border: 3px solid rgba(0, 0, 138, 0.795);
+    transition: 0.2s;
+}
+.inpt{
+    border-radius: 2px;
+    border: 1px solid rgb(38, 52, 247);
+    top: 15px;
+    position: absolute;
+    width: 40%;
+    height: 30px;
+    background: rgb(194, 194, 250);
+    color: black;
+}
+.n1{
+    left: 5px;
+}
+.n2{
+    right: 5px;
+}
+button{
+    left: 50%;
+    transform: translate(-50%);
+    top: 250px;
+    background: rgb(48, 48, 255);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    width: 150px;
+}
+#div2{
+    top: 60px;
+    position: relative;
+}
+#boxop{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    left: 50%;
+    transform: translate(-50%);
+    top: 16px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: black;
+    border-radius: 2px;
+}
+#div3{
+    position: absolute;
+    bottom: 20px;
+    left: 22px;
+    width: 250px;
+    height: 180px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    background: white;
+}
+    
+

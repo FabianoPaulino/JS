@@ -1,0 +1,9 @@
+@charset "UTF-8";
+#caixa{
+    display: flex;
+    width: 400px;
+    min-width: 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
