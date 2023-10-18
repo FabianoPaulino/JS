@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>63</title>
+    <link rel="stylesheet" href="63.css">
+</head>
+<body>
+    <div id="nor" class="campo">
+        <label for="inm">Nome</label>
+        <input type="text" name="nm" id="inm" class="txt">
+        <label for="ipt">Portas</label>
+        <input type="number" name="pt" id="ipt" class="txt">
+    </div>
+    <div id="mil" class="campo">
+        <label for="ibl">Blindagem</label>
+        <input type="number" name="nm" id="ibl"class="txt st" value="0" disabled>
+        <label for="imn">Munição</label>
+        <input type="number" name="pt" id="imn"class="txt st" value="0" disabled>
+    </div>
+    <div id="but">
+        <p>Tipo</p>
+        <div class="campo">
+            <input type="radio" name="ra" id="idra" class="radi" checked>
+            <label for="idra">Normal</label>
+        </div>
+        <div class="campo">
+            <input type="radio" name="ra" id="idra2" class="radi">
+            <label for="idra2">Militar</label>
+        </div>
+        <button id="add">Adicionar</button>
+    </div>
+    <div id="resu"></div>    
+    <script src="63.js"></script>
+</body>
+</html>

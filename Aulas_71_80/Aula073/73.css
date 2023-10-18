@@ -1,0 +1,55 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-size: large;
+}
+.dflex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc{
+    flex-direction: column;
+    background-color: lightgray;
+    border: 3px solid #bbb;
+    border-radius: 5px;
+    width: 230px;
+}
+#div_nome{
+    width: 220px;
+
+}
+#div_teclas{
+    width: 210px;
+    flex-wrap: wrap;
+
+}
+.tecla{
+    background-color: #aaa;
+    border: 3px solid #888;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.tecla_op{
+    background-color: rgb(175, 105, 105) !important;
+    border-color: rgb(216, 68, 68) !important;
+}
+#div_display{
+    border: 1px solid red;
+    width: 220px;
+    margin-bottom: 5px;
+}
+#display{
+    width: 220px;
+    background-color: rgb(56, 141, 56);
+    text-align: right;
+    padding: 5px;
+    font: larger monospace;
+    min-height: 30px;
+}
