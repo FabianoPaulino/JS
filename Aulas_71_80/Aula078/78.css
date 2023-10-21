@@ -1,0 +1,15 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    box-sizing: border-box;
+}
+#rel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    background-color: #313131;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(152, 231, 152);
+}
