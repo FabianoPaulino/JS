@@ -1,0 +1,19 @@
+@charset "UTF-8";
+*{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    box-sizing: border-box;
+}
+input, button{
+    margin-bottom: 10px;
+}
+button{
+    background-color: #eee;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+button:hover{
+    outline: 3px solid #f00;
+}
