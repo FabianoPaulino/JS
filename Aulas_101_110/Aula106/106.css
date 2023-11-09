@@ -1,0 +1,54 @@
+@charset "UTF-8";
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#campo, #botao{
+    display: flex;
+    flex-direction: column;
+}
+#btn_write{
+    height: 30px;
+    text-align: center;
+    justify-content: center;
+    background-color: gray;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+input[type="text"]{
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 20px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+#listacontato{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 3px solid #888;
+    margin: 5px;
+    width: calc(100% - 20px);
+}
+.contato{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}

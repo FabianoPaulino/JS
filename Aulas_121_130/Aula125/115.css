@@ -1,0 +1,26 @@
+@charset "UTF-8";
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.info{
+    display: flex;
+    justify-content: space-around;
+}
+.quadrado{
+    display: flex;
+}
+#q1{
+    position: relative;
+    background-color: #f00;
+    width: 150px;
+    height: 150px;
+}
+#q2{
+    position: relative;
+    background-color: #00f;
+    width: 100px;
+    height: 100px;
+}
