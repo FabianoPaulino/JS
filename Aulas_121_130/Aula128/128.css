@@ -1,0 +1,11 @@
+@charset "UTF-8";
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+#grafico{
+    height: 500px;
+    width: 500px;
+}

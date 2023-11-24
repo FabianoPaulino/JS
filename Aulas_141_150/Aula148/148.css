@@ -1,0 +1,25 @@
+@charset "UTF-8";
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.btn{
+    width: 250px;
+    height: 30px;
+    margin: 5px;
+    border: 2px solid gray;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+.btn:active{
+    border: 3px solid gray;
+    font-size: 1.08em;
+}
+.btn:hover{
+    box-shadow: 1px 1px 2px black;
+    transition: 0.1s;
+}
+
+

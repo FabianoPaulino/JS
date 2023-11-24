@@ -5,10 +5,14 @@
     margin: 0px;
     box-sizing: border-box;
 }
-form{
+body{
     display: flex;
     width: 300px;
     flex-direction: column;
+}
+label{
+    position: relative;
+    left: 120px;
 }
 input{
     border: 3px solid #aaa;

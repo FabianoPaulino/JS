@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>128</title>
+    <link rel="stylesheet" href="128.css">
+</head>
+<body>
+    <div>
+        <canvas id="grafico"></canvas>
+    </div>
+    <script src="128.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('grafico');
+    let labelsx = ['Disponibilidade', 'Qualidade', 'Performance']
+    let valores = [0,0,0]
+    const obt = ()=>{
+        var end = "http://localhost:8080/"
+        fetch(end).then(res => res.json()).then(end => {
+            valores[0] = end.disponibilidade
+            valores[1] = end.qualidade
+            valores[2] = end.performance
+            grafico.update()
+            }).catch(erro => console.log("Erro: " + erro))
+        }
+        setInterval(obt, 2000)
+    let grafico = new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: labelsx,
+        datasets: [{
+        label: '# of Votes',
+        data: valores,
+        borderWidth: 1
+      }]
+    },
+        options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+      }
+    }
+  });
+    
+
+</script>
+</body>
+</html>  

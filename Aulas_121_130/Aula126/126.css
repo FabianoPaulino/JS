@@ -1,0 +1,11 @@
+@charset "UTF-8";
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+canvas{
+    width: 500px; 
+    height: 500px;
+}
