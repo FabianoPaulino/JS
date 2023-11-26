@@ -1,10 +1,4 @@
-const config = {
-  titulo: "Teste",
-  texto: "CFB Cursos",
-  cor: "#48f"
-}
-const cxmsg = new cx(config)
-const btn = document.querySelector("#btn_show")
-btn.addEventListener("click", (bt)=>{
-  cxmsg.mostrar()
-})
+import{login} from "../../login.js"
+login.login("123", "321")
+
+login.show()

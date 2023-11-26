@@ -1,8 +1,8 @@
-const config = {
-  cor: "#48f"
+import{login} from "../../login.js"
+const para = {
+    cor: "blue",
+    img: "../../javascript100.png"
 }
-const cxmsg = new cx(config)
-const btn = document.querySelector("#btn_show")
-btn.addEventListener("click", (bt)=>{
-  cxmsg.mostrar("Cursos", "Curso de Javascript - Caixa de mensagem personalizada")
-})
+login.login("123", "321", para)
+
+//login.show()

@@ -1,10 +1,8 @@
-import{cx} from "../../cxmsg.js"
-
-const config = {
-  cor: "blue"
+import{login} from "../../login.js"
+const para = {
+    cor: "blue",
+    img: "../../javascript100.png"
 }
-cx.configcor(config)
-const btn = document.querySelector("#btn_show")
-btn.addEventListener("click", (bt)=>{
-  cx.mostrar("Cursos", "Curso de Javascript - Caixa de mensagem personalizada")
-})
+login.login(para)
+
+//login.show()
