@@ -1,4 +1,3 @@
-import{login} from "../../login.js"
 import{cx} from "../../cxmsg.js"
 const para = {
     cor: "blue",

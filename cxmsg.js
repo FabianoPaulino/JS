@@ -9,7 +9,7 @@ class cx{
         this.texto = config.texto
         this.cor = config.cor
         this.tipo = config.tipo
-        this.comando_sn = ()=>{config.comando_sn()}
+        //this.comando_sn = ()=>{config.comando_sn()}
         this.destino = document.body
 
         this.divmsg = document.createElement("div")
@@ -24,6 +24,7 @@ class cx{
         width: 100%;
         height: 100%;
         background-color: rgb(0,0,0,0.3);
+        z-index: 1;
         `
         
         const areacxmgs = document.createElement("div")
@@ -73,7 +74,8 @@ class cx{
         background-color: #ccc;
         color: #000;
         padding: px;
-        border-radius: 0px 5px`
+        border-radius: 0px 5px
+        `
 
         const style_btn = `
         background-color: ${this.cor};
@@ -93,7 +95,7 @@ class cx{
             btn_ok.style = style_btn
             btn_ok.addEventListener("click", ()=>{
                 this.ocultar()
-                this.comando_sn()
+                //this.comando_sn()
             })
             rodapecxmsg.appendChild(btn_ok)
         }else if(this.tipo == "sn"){

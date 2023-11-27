@@ -5,12 +5,19 @@ class login{
     static acessologado = null
     static estilo = null
     static config = null
+    static callback_ok = null
+    static callback_nok = null
     //static mat = null
     //static pas = null
     static endpoint = "http://localhost:8080/"
-    static login = (config)=>{
+    static login = (callback_ok, callback_nok, config)=>{
         this.config = config
-        //this.endpoint += `?matricula=${mat}&senha=${pas}`
+        this.callback_ok = ()=>{
+            callback_ok()
+        }
+        this.callback_nok = ()=>{
+            callback_nok()
+        }
         this.estilo = `.fundologin{
             display: flex;
             justify-content: center;
@@ -21,6 +28,7 @@ class login{
             top: 0px;
             left: 0px;
             background-color: rgba(0,0,0,0.50);
+            
         }
         .baselogin{
             display: flex;
@@ -28,6 +36,7 @@ class login{
             align-items: stretch;
             width: 50%;
             box-sizing: inherit;
+            
         }
         .elementoslogin{
             display: flex;
@@ -40,6 +49,7 @@ class login{
             border-radius: 10px 0px 0px 10px;
             padding: 5px;
             box-sizing: inherit;
+            
         }
         .logologin{
             display: flex;
@@ -50,10 +60,12 @@ class login{
             padding: 10px;
             border-radius: 0px 10px 10px 0px;
             box-sizing: inherit;
+            
         }
         .logologin .img{
             width: 90%;
             box-sizing: inherit;
+            
         }
         .campologin{
             display: flex;
@@ -63,6 +75,7 @@ class login{
             box-sizing: inherit;
             margin-bottom: 10px;
             width: 100%;
+            
         }
         .campologin input{
             font-size: 16px;
@@ -70,9 +83,11 @@ class login{
             background-color: #fff;
             border-radius: 5px;
             width: 98%;
+            
         }
         .campologin label{
             font-size: 16px;
+            
         }
         .botoeslogin{
             display: flex;
@@ -80,6 +95,7 @@ class login{
             align-items: center;
             width: 100%;
             box-sizing: inherit;
+            
         }
         .botoeslogin button{
             cursor: pointer;
@@ -90,23 +106,14 @@ class login{
             width: 90%;
             margin: 2px;
             box-sizing: inherit;
+            
         }`
         
         const estilo = document.createElement("style")
         estilo.setAttribute("id", "log")
         estilo.innerHTML = this.estilo
         document.head.appendChild(estilo)
-        //document.head.appendChild(linkestilo)
-        // fetch(this.endpoint).then(res=>res.json()).then(res=>{
-        //     if(res){
-        //         this.logado = true
-        //         this.matlogado = mat
-        //         this.nomelogado = res.nome
-        //         this.acessologado = res.acesso
-        //     }else{
-        //         console.log("Usuario não encontrado")
-        //     }
-        // }).catch(erro=>console.log(erro))
+    
         const fundologin = document.createElement("div")
         fundologin.setAttribute('id', "fundologin")
         fundologin.setAttribute('class', "fundologin")
@@ -166,11 +173,7 @@ class login{
         botoeslogin.appendChild(botao_l)
         //Evento
         botao_l.addEventListener("click", ()=>{
-            if(this.verificalog()){
-                this.remove()
-            }else{
-                alert("Dados não cadastrados")
-            }
+           this.verificalog()
         })
         const botao_c = document.createElement("button")
         botao_c.setAttribute('id', "btn_cancelar")
@@ -201,12 +204,23 @@ class login{
     static verificalog = ()=>{
         const mat = document.querySelector("#f_username").value
         const pas = document.querySelector("#f_senha").value
-        if(mat == "123" && pas == "321"){
-            return true
-        }else return false
-    } 
-
-
+        const endp = `http://localhost:8080/?matricula=${mat}&senha=${pas}`
+        fetch(endp).then(res=>res.json()).then(res=>{
+            if(res){
+                this.logado = true;
+                this.matlogado = mat
+                this.nomelogado = res.nome
+                this.acessologado = res.acesso
+                this.remove()
+                this.callback_ok()
+            }else{
+                this.logado = false;
+                this.callback_nok()
+            }
+        }).catch(erro=>{
+            console.log(erro)
+        })
+    }
     /*static show = ()=>{
 
         
@@ -288,4 +302,4 @@ class login{
         document.body.appendChild(fundologin)
     }*/
 }
-export {login}
+//export {login}

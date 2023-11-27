@@ -1,22 +1,20 @@
-var times = document.querySelector(".time")
-const tmpini= Date.now()
-
-const contador = ()=>{
-    const tmpatual = Date.now()
-    let cont = tmpatual - tmpini
-    let seg = Math.floor(cont/1000)
-    times.innerHTML = converter(seg)
+import{login} from "../../login.js"
+import{cx} from "../../cxmsg.js"
+const para = {
+    cor: "blue",
+    img: "../../javascript100.png"
 }
-const converter = (seg)=>{
-    const hora = Math.floor(seg/3600)
-    let resto = seg%3600
-    const minuto = Math.floor(resto/60)
-    const segundo = Math.floor(resto%60)
-    
-    const form = `${hora < 10 ? "0" + hora : hora}:${minuto < 10 ? "0" + minuto : minuto}:${segundo < 10 ? "0" + segundo : segundo}`
-    return form
+const configu = {
+    cor: "blue",
+    tipo: "ok"
 }
+const ok = ()=>{
+    cx.mostrar(configu, "Login", "Login efetuado com sucesso")
+}
+const nok = ()=>{
+    cx.mostrar({cor: "red", tipo: "ok"}, "Erro", "Usuario não cadastrado, username ou senha incorretos/ausentes")
+}
+login.login(ok, nok, para)
 
-setInterval(contador, 1000)
-contador()
-console.log(tmpini)
+
+//login.show()
