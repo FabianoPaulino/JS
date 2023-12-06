@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @charset "UTF-8";
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            transition: 0.2s;
+        }
+        .p_campoForm{
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: row;
+            display: flex;
+        }
+        #f_pesq, .n0{
+            background-color: rgb(14, 62, 158);
+        }
+        #f_nome, .n1{
+            background-color: rgb(22, 14, 136)
+        }
+        #f_data, .n2{
+            background-color: rgb(6, 27, 95);
+        }
+        #f_mail, .n3{
+            background-color: rgb(4, 9, 51);
+        }
+        #f_tele, .n4{
+            background-color: rgb(3, 1, 19);
+        }
+        #f_txt{
+            width: 300px;
+        }
+        .divRes{
+            display: flex;
+            color: white;
+            width: 100%;
+            font-size: 1.1em;
+            padding-left: 10px;
+        }
+        #result{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 98%;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .coluna{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-direction: row;
+            padding: 5px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(92, 130, 206);
+            border-radius: 5px;
+            width: 100%;
+        }
+        .divLinha{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column; 
+            border: 2px solid rgb(12, 21, 104);
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gestao{
+            display: flex;
+            position: absolute;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column; 
+            border-radius: 5px;
+            height: 135px;
+            background-color: white;
+            font-size: 1.1em;
+        }
+        .dados{
+            border: 1px solid rgba(0, 0, 0, 0.575);
+            padding: 3px;
+            width: 318px;
+        }
+        .divRes{
+            border: 1px solid transparent;
+        }
+        h2{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Todos os cadastros no servidor</h2>
+    </div>
+    </div>
+    <div id="result">
+    </div>
+    <script>
+        var endAdd = null
+        const add = ()=>{
+             const endpoint= `home.php`
+            fetch(endpoint).then(res => res.json()).then(res =>{
+                const result = document.querySelector("#result")
+                const dados = ["ID", "Nome", "Telefone", "Email", "Nascimento"]
+                res.map((ar, ind)=>{
+                    var array = [ar.n_contato_contato, ar.s_nome_contato, ar.s_dnasc_contato, ar.s_email_contato, ar.s_celular_contato]
+                    const divLinha = document.createElement("div")
+                    divLinha.setAttribute("class", "divLinha")
+                    divLinha.setAttribute("id", `divLinha${ind}`)
+                    array.map((el, i)=>{
+                        const divResult = document.createElement("div")
+                        divResult.setAttribute("class", `divRes n${i}`)
+                        divResult.innerHTML = el
+                        divLinha.appendChild(divResult)
+                        if(i == 4){
+                            result.appendChild(divLinha)
+                        }
+                    })
+                })
+            })    
+        }
+        add()
+    </script>
+</body>
+</html>  

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo</title>
+    <style>
+        @charset "UTF-8";
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        #novo{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+        }
+        .n_elementosForm, .n_campoForm, .n_botoesForm{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .n_elementosForm{
+            margin-top: 20px;
+            flex-direction: column;
+            align-items: flex-start!important;
+            justify-content: flex-start!important;
+            width: 80%;
+        }
+        .n_campoForm{
+            flex-direction: column!important;
+            align-items: flex-start!important;
+            width: 100%;
+        }
+        .n_botoesForm{
+            margin-top: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+        .n_campoForm input{
+            width: 100%;
+            height: 25px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+        .btn{
+            background-color: #248;
+            color: #fff;
+            text-transform: uppercase;
+            padding: 13px;
+            cursor: pointer;
+            border-radius: 10px 10px 10px 10px;
+            margin: 2px;
+        }
+        label{ 
+            font: 1.1em 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body id="novo">
+    <div class="n_elementosForm">
+        <!-- <div class="n_campoForm">
+            <label for="f_id">ID</label>
+            <input type="text" name="f_id" id="f_id" class="f_id">
+        </div> -->
+        <div class="n_campoForm">
+            <label for="f_nome">Nome</label>
+            <input type="text" name="f_nome" id="f_nome" class="f_nome" value="Fabiano">
+        </div>
+        <div class="n_campoForm">
+            <label for="f_email">Email</label>
+            <input type="text" name="f_email" id="f_email" class="f_email" value="namedunamed@mail.com">
+        </div>
+        <div class="n_campoForm">
+            <label for="f_nasc">Data de nascimento</label>
+            <input type="date" name="f_nasc" id="f_nasc" class="f_nasc">
+        </div>
+        <div class="n_campoForm">
+            <label for="f_tel">Telefone</label>
+            <input type="number" name="f_tel" id="f_tel" class="f_tel" value="83999999999">
+        </div>
+        <div class="n_botoesForm">
+            <button id="btnAdd" type="submit" class="btn">Adicionar</button>
+            <button id="btnCancel" class="btn">Cancelar</button>
+        </div>
+    </div>
+    
+    <script>
+    const inputs = [...document.getElementsByTagName("input")]
+    inputs[0].focus()
+    var array = []
+    const btnAdd = document.querySelector("#btnAdd").addEventListener("click", ()=>{
+            inputs.map((inp_el)=>{
+            switch(inp_el.classList){
+            // case 'f_id':
+            //     array.push(inp_el.value)
+            //     break;
+            case 'f_nome':
+                array.push(inp_el.value)
+                break;
+            case 'f_email':
+                array.push(inp_el.value)
+                break;
+            case 'f_nasc':
+                var dt = inp_el.value
+                var ndt = dt[6]+dt[7]+dt[8]+dt[9]+dt[3]+dt[4]+dt[0]+dt[2]
+                array.push(ndt)
+                break;
+            default:
+                array.push(inp_el.value)
+            }
+        })
+            for(let i of array){
+                if(i.length == 0){
+                    alert("Um dos campos está vázio, preencha")
+                    array = []
+                    break;
+                }else{
+                    for(let d in inputs){
+                        inputs[d].value = null 
+                    }
+                    const data = {
+                        ar1: 0,
+                        ar2: array[0],
+                        ar3: array[1],
+                        ar4: array[2],
+                        ar5: array[3],
+                    }
+                    const cabeçalho ={
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    }
+                    inputs[0].focus()
+                    const endAdd = `http://127.0.0.1:1880/addcontatos`
+                    fetch(endAdd, cabeçalho).then(res => res.json()).catch(erro =>{console.log(`Erro(1): ${erro}`)})
+                    array = []
+                    break;
+                }
+            }
+        })
+    const btnCancel = document.querySelector("#btnCancel").addEventListener("click", ()=>{
+        for(let d in inputs){
+            inputs[d].value = null 
+        }
+        inputs[0].focus()
+    })
+    </script>
+</body>
+</html>  

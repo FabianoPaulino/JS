@@ -14,8 +14,6 @@ topo.innerHTML += `
     <img id="img" src="../../javascript100.png" type="image/png" title="Curso">
 </div>
 <div id="login" class="login">
-    <p id="matricula">Matricula:</p>
-    <p id="nome">Nome:</p>
 </div>
 `
 const img = document.querySelector("#img")

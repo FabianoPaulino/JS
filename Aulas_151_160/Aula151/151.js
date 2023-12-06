@@ -1,7 +1,9 @@
 import{cx} from "../../cxmsg.js"
+import{login} from "../../login.js"
 const para = {
     cor: "blue",
-    img: "../../javascript100.png"
+    img: "../../javascript100.png",
+    endpoint: "http://localhost:8080/"
 }
 const configu = {
     cor: "blue",

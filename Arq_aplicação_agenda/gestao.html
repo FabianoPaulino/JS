@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão</title>
+    <style>
+        @charset "UTF-8";
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            transition: 0.2s;
+        }
+        .p_campoForm, #pesquisa{
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: row;
+            display: flex;
+        }
+        input[type=text]{
+            padding: 10px;
+            border-radius: 5px;
+            height: 41px;
+        }
+        #pesquisa{
+            align-items: center!important;
+            justify-content: space-around!important;
+            width: 100%;
+            margin-top: 20px;
+        }
+        label{
+            margin-right: 5px;
+        }
+        .btn{
+            background-color: #248;
+            color: #fff;
+            text-transform: uppercase;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 10px 10px 10px 10px;
+            margin: 2px;
+        }
+        .filter{
+            padding: 8px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 4px solid transparent;
+        }
+        #f_pesq, .n0{
+            background-color: rgb(14, 62, 158);
+        }
+        #f_nome, .n1{
+            background-color: rgb(22, 14, 136)
+        }
+        #f_data, .n2{
+            background-color: rgb(6, 27, 95);
+        }
+        #f_mail, .n3{
+            background-color: rgb(4, 9, 51);
+        }
+        #f_tele, .n4{
+            background-color: rgb(3, 1, 19);
+        }
+        .divRes{
+            display: flex;
+            color: white;
+            width: 100%;
+            font-size: 1.1em;
+            padding-left: 10px;
+        }
+        .mark{
+            border-color: rgb(255, 255, 255);
+        }
+        #result{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 98%;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .coluna{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-direction: row;
+            padding: 5px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(92, 130, 206);
+            border-radius: 5px;
+            width: 100%;
+        }
+        .divLinha{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column; 
+            border: 2px solid rgb(12, 21, 104);
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .find{
+            border: 2px solid black;
+            animation: animacaoBorda 1s infinite alternate;
+        }
+        @keyframes animacaoBorda {
+            from {
+            border-color: transparent;
+            }
+            to {
+            border-color: white;
+            }
+        }
+        .gestao{
+            display: flex;
+            position: absolute;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column; 
+            border-radius: 5px;
+            height: 135px;
+            background-color: white;
+            font-size: 1.1em;
+        }
+        .dados{
+            border: 1px solid rgba(0, 0, 0, 0.575);
+            padding: 3px;
+            width: 318px;
+        }
+        .btnOk, .btnDel{
+            position: absolute;
+            display: block;
+            background-color: rgb(16, 34, 70);
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+            width: 100px;
+        }
+        .btnOk{
+            left: 50%;
+            bottom: -16px;
+        }
+        .btnDel{
+            right: 50%;
+            bottom: -16px;
+        }
+        .atualizado{
+            border: 1px solid transparent;
+            animation: animacaoBorda_2 0.5s infinite alternate;
+        }
+        @keyframes animacaoBorda_2 {
+            from {
+            border-color: transparent;
+            }
+            to {
+            border-color: rgb(255, 0, 0);
+            }
+        }
+        .divRes{
+            border: 1px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="pesquisa">
+        <div class="p_campoForm">
+            <div id="f_pesq" class="filter mark">ID</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_nome" class="filter">Nome</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_data" class="filter">Data</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_mail" class="filter">Email</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_tele" class="filter">Celular</div>
+        </div>
+        <div class="p_campoForm">
+            <input type="text" name="f_txt" id="f_txt" placeholder="Pesquisar">
+        </div>
+    </div>
+    <div id="result">
+    </div>
+    <script>
+        var cntl = 0
+        const paramarcar = [...document.querySelectorAll(".filter")]
+        paramarcar.map((el)=>{
+            el.addEventListener("click", ()=>{
+                for(let i of paramarcar){
+                    i.classList.remove("mark")
+                }
+                el.classList.add("mark")
+            })
+        })
+        const removeDados = ()=>{
+            const rem = [...result.querySelectorAll(".divLinha")]
+            if(rem.length > 0){
+                for(let i in rem){
+                    rem[i].remove()
+                }
+            }
+        }
+        const add = (modo)=>{
+            var endAdd = null
+            var input = ""
+            if(modo == 1){
+                var marcado = document.querySelector(".mark")
+                input = document.querySelector("input").value
+                if(input == ""){
+                    input = "0"
+                }
+                endAdd = `http://127.0.0.1:1880/pesquisarcontatos/${marcado.id}/${input}`
+            }else{
+                endAdd = `http://127.0.0.1:1880/contatos`
+            }
+            fetch(endAdd).then(res => res.json()).then(res =>{
+                const result = document.querySelector("#result")
+                const dados = ["ID", "Nome", "Telefone", "Email", "Nascimento"]
+                if(res.length > 0){
+                    removeDados()
+                }
+                res.map((ar, ind)=>{
+                    var array = [ar.n_contato_contato, ar.s_nome_contato, ar.s_dnasc_contato, ar.s_email_contato, ar.s_celular_contato]
+                    const divLinha = document.createElement("div")
+                    divLinha.setAttribute("class", "divLinha")
+                    
+                    array.map((el, i)=>{
+                        const divResult = document.createElement("div")
+                        divResult.setAttribute("class", `divRes n${i}`)
+                        if(input.toLowerCase() == el.toString().toLowerCase()){
+                            divResult.classList.add("find")  
+                        }
+                        divResult.innerHTML = el
+                        divLinha.appendChild(divResult)
+                        if(i == 4){
+                            result.appendChild(divLinha)
+                        }
+                    })
+                })
+                var cntl = 1
+                const delDiv = [...document.querySelectorAll(".divLinha")]
+                delDiv.map((el)=>{
+                    el.addEventListener("click", ()=>{
+                        const gestao = document.createElement("div")
+                        gestao.setAttribute("class", "gestao")
+                        const divRes = [...el.querySelectorAll(".divRes")]
+                        divRes.map((el)=>{
+                            const inputs = document.createElement("input")
+                            inputs.setAttribute("class", "dados")
+                            inputs.value = el.innerHTML
+                            gestao.appendChild(inputs)
+                        })
+                        const btnok = document.createElement("button")
+                        const btndel = document.createElement("button")
+                        btnok.setAttribute("class", "btnOk")
+                        btndel.setAttribute("class", "btnDel")
+                        btnok.innerText = "OK"
+                        btndel.innerText = "DELETAR"
+                        gestao.appendChild(btnok)
+                        gestao.appendChild(btndel)
+                        const inpAtt = [...gestao.querySelectorAll(".dados")][0].setAttribute("readonly", "true")
+                        btnok.addEventListener("click", ()=>{
+                            divRes.map((el, i)=>{
+                                const valInps_2 = [...gestao.querySelectorAll(".dados")][i].value
+                                if(el.innerHTML != valInps_2){
+                                    el.innerHTML = valInps_2
+                                    el.classList.add("atualizado")
+                                    console.log(el.classList)
+                                    setTimeout(()=>{el.classList.remove("atualizado")}, 2000)
+                                }
+                            })
+                            const valInps = [...el.querySelectorAll(".dados")]
+                            const dados = {
+                                ar1: valInps[0].value,
+                                ar2: valInps[1].value,
+                                ar3: valInps[2].value,
+                                ar4: valInps[3].value,
+                                ar5: valInps[4].value,
+                            }
+                            const cabecalho_1 = {
+                                method : 'POST',
+                                body: JSON.stringify(dados)
+                            }
+                            fetch("http://127.0.0.1:1880/editarcontatos", cabecalho_1).then(res => {
+                                if(res.status == 200){
+                                    console.log("Dados atualizados!")
+                                }
+                            }).catch(erro => console.log(erro))
+                            el.querySelector(".gestao").remove()
+                            cntl++
+                        })
+                        btndel.addEventListener("click", ()=>{
+                            const id = [...gestao.querySelectorAll(".dados")][0].value
+                            fetch(`http://127.0.0.1:1880/deletarcontatos/${id}`).then(res => res.json()).then(res => {
+                                alert("Dados apagados com sucesso!")
+                            }).catch(erro => console.log(`Erro referente ao deletar: ${erro}`))
+                            el.remove()
+                            cntl++
+                        }) 
+                        if(el.querySelectorAll(".gestao").length < 1 && cntl == 1){
+                            el.appendChild(gestao)
+                        }
+                        cntl = 1
+                    })
+                })
+            }).catch(erro =>{console.log(`Erro(1): ${erro}`)}) 
+        }
+        add()
+        var inputc = document.querySelector("#f_txt")
+        inputc.addEventListener("input", ()=>{
+            if(inputc.value.length < 1){
+                add()
+            }
+            add(1)
+        })
+    </script>
+</body>
+</html>  

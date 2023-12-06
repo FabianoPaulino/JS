@@ -9,7 +9,12 @@ class login{
     static callback_nok = null
     //static mat = null
     //static pas = null
-    static endpoint = "http://localhost:8080/"
+    static config = {
+        cor: null,
+        img: null,
+        endpoint: null
+    }
+    //static endpoint = "http://localhost:8080/"
     static login = (callback_ok, callback_nok, config)=>{
         this.config = config
         this.callback_ok = ()=>{
@@ -204,7 +209,7 @@ class login{
     static verificalog = ()=>{
         const mat = document.querySelector("#f_username").value
         const pas = document.querySelector("#f_senha").value
-        const endp = `http://localhost:8080/?matricula=${mat}&senha=${pas}`
+        const endp = `${this.config.endpoint}?matricula=${mat}&senha=${pas}`
         fetch(endp).then(res=>res.json()).then(res=>{
             if(res){
                 this.logado = true;
@@ -302,4 +307,4 @@ class login{
         document.body.appendChild(fundologin)
     }*/
 }
-//export {login}
+export {login}

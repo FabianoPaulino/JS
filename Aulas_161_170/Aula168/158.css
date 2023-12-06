@@ -1,0 +1,100 @@
+@charset "UTF-8";
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.dgv, .dgvDados, .dgvTitulos, .dgvLinha{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.dgv{
+    flex-direction: column!important;
+}
+.dgvDados{
+    flex-direction: column!important;
+}
+.dgvTitulos{
+    background-color: #138;
+    color: #fff;
+    border-radius: 5px 5px 0px 0px;
+}
+.dgvTitulos div, .dgvDados div{
+    padding: 5px;
+}
+.dgvLinha{
+    width: 510px;
+}
+.dgvLinha:hover{
+    cursor: pointer;
+    background-color: rgb(7, 104, 96)!important;
+    color: white!important;
+}
+.dgvLinha:nth-child(odd){
+    background-color: #aaa;
+}
+.dgvLinha:nth-child(even){
+    background-color: #ddd;
+}
+.c1{
+    width: 50px;
+}
+.c2{
+    width: 120px;
+}
+.c3{
+    width: 120px;
+}
+.c4{
+    width: 120px;
+}
+.c5{
+    width: 100px;
+}
+img{
+    padding-left: 2px;
+}
+/**/
+.janelaView{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.view{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #aaa;
+    padding: 10px;
+    border-radius: 5px;
+}
+.campo{
+    width: 150px;
+}
+.campo input{
+    border-radius: 5px;
+    width: 150px;
+    height: 20px;
+}
+.btn{
+    width: 150px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #138;
+    color: white;
+}
+label{
+    font: 1.2em Arial;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.61);
+}

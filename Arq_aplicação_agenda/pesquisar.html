@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar</title>
+    <style>
+        @charset "UTF-8";
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            transition: 0.2s;
+        }
+        .p_campoForm, #pesquisa{
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: row;
+            display: flex;
+        }
+        input[type=text]{
+            padding: 10px;
+            border-radius: 5px;
+            height: 41px;
+        }
+        #pesquisa{
+            align-items: center!important;
+            justify-content: space-around!important;
+            width: 100%;
+            margin-top: 20px;
+        }
+        label{
+            margin-right: 5px;
+        }
+        .btn{
+            background-color: #248;
+            color: #fff;
+            text-transform: uppercase;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 10px 10px 10px 10px;
+            margin: 2px;
+        }
+        .filter{
+            padding: 8px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 4px solid transparent;
+        }
+        #f_pesq, .n0{
+            background-color: rgb(14, 62, 158);
+        }
+        #f_nome, .n1{
+            background-color: rgb(22, 14, 136)
+        }
+        #f_data, .n2{
+            background-color: rgb(6, 27, 95);
+        }
+        #f_mail, .n3{
+            background-color: rgb(4, 9, 51);
+        }
+        #f_tele, .n4{
+            background-color: rgb(3, 1, 19);
+        }
+        .divRes{
+            display: flex;
+            color: white;
+            width: 100%;
+            font-size: 1.1em;
+            padding-left: 10px;
+        }
+        .mark{
+            border-color: rgb(255, 255, 255);
+        }
+        #result{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 98%;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .coluna{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-direction: row;
+            padding: 5px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(92, 130, 206);
+            border-radius: 5px;
+            width: 100%;
+        }
+        .divLinha{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column; 
+            border: 2px solid rgb(12, 21, 104);
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .find{
+            border: 2px solid black;
+            animation: animacaoBorda 1s infinite alternate;
+        }
+        @keyframes animacaoBorda {
+            from {
+            border-color: transparent;
+            }
+            to {
+            border-color: white;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="pesquisa">
+        <div class="p_campoForm">
+            <div id="f_pesq" class="filter mark">ID</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_nome" class="filter">Nome</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_data" class="filter">Data</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_mail" class="filter">Email</div>
+        </div>
+        <div class="p_campoForm">
+            <div id="f_tele" class="filter">Celular</div>
+        </div>
+        <div class="p_campoForm">
+            <input type="text" name="f_txt" id="f_txt" placeholder="Pesquisar">
+        </div>
+    </div>
+    <div id="result">
+    </div>
+    <script>
+        const paramarcar = [...document.querySelectorAll(".filter")]
+        paramarcar.map((el)=>{
+            el.addEventListener("click", ()=>{
+                for(let i of paramarcar){
+                    i.classList.remove("mark")
+                }
+                el.classList.add("mark")
+            })
+        })
+        var inputc = document.querySelector("input")
+        inputc.addEventListener("input", ()=>{
+            var input = document.querySelector("input").value
+            if(input.length == 0){
+                input = "0"
+            }
+            const marcado = document.querySelector(".mark")
+            const endAdd = `http://127.0.0.1:1880/pesquisarcontatos/${marcado.id}/${input}`
+            fetch(endAdd).then(res => res.json()).then(res =>{
+                const result = document.querySelector("#result")
+                const dados = ["ID", "Nome", "Telefone", "Email", "Nascimento"]
+                res.map((ar, ind)=>{
+                    var array = [ar.n_contato_contato, ar.s_nome_contato, ar.s_dnasc_contato, ar.s_email_contato, ar.s_celular_contato]
+                    const divLinha = document.createElement("div")
+                    divLinha.setAttribute("class", "divLinha")
+                    var find = [...result.querySelectorAll(".find")]
+                    var rem = [...result.querySelectorAll(".divLinha")]
+                    array.map((el, i)=>{
+                        const divResult = document.createElement("div")
+                        divResult.setAttribute("class", `divRes n${i}`)
+                        if(input.toLowerCase() == el.toString().toLowerCase()){
+                            divResult.classList.add("find")  
+                        }
+                        divResult.innerHTML = el
+                        divLinha.appendChild(divResult)
+                        if(i == 4){
+                            result.appendChild(divLinha)
+                        }
+                    })
+                })
+            }).catch(erro =>{console.log(`Erro(1): ${erro}`)}) 
+        })
+    </script>
+</body>
+</html>  
