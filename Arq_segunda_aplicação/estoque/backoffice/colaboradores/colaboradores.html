@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaboradores</title>
+    <link rel="stylesheet" href="colaboradores.css">
+    <link rel="stylesheet" href="../../../cssGeral.css">
+</head>
+<body>
+        <div id="topoJanela" class="topoJanela">
+            <div></div>
+            <h2>Colaboradores</h2>
+            <div>
+                <img src="../../../imgs/add.svg" alt="adicionar" id="btnAdd">
+            </div>
+        </div>
+        <div id="novoColaborador" class="popup">
+            <div class="janelaPopup">
+                <div class="tituloPopup">
+                    <div>
+                        Novo colaborador
+                    </div>
+                    <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
+                </div>
+                <div class="corpoPopup">
+                    <div class="campoForm">
+                        <label for="f_nome">Colaborador</label>
+                        <input type="text" name="f_nome" id="f_nome">
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_tipo">Tipo de colaborador</label>
+                        <select type="number" name="f_tipo" id="f_tipo">
+                        </select>
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_status">Status do colaborador</label>
+                        <select type="text" name="f_status" id="f_status">
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_tel">Telefones</label>
+                        <input type="number" name="f_tel" id="f_tel">
+                        <div id="telefones">
+                            <div class="tel">
+                                <div id="numTel" class="numTel">(83)991385180</div>
+                                <div id="delTel" class="delTel">X</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rodapePopup">
+                    <button id="btnGravar" class="btnComandoPopup">Gravar</button>
+                    <button id="btnCancelar" class="btnComandoPopup">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div id="grid" class="grid">
+            <div id="tituloGrid" class="tituloGrid">
+                <div class="colunaTituloGrid c1">ID</div>
+                <div class="colunaTituloGrid c2">Nome</div>
+                <div class="colunaTituloGrid c3">Tipo de Usuário</div>
+                <div class="colunaTituloGrid c4">Status do Usuário</div>
+                <div class="colunaTituloGrid c5">Operações</div>
+            </div>
+            <div id="dadosGrig" class="dadosGrid">
+            </div>
+        </div>
+    <script src="colaboradores.js"></script>
+    <script src="../../backoffice/index.js"></script>
+</body>
+</html>  

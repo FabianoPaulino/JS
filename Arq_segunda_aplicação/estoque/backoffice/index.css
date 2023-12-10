@@ -1,0 +1,68 @@
+.topo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #248;
+    color: white;
+    height: 30px;
+}
+#logo{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 1px;
+}
+#config{
+    top: 1px;
+    display: block;
+    position: absolute;
+    right: 1%;
+}
+.f_principal{
+    width: 100%;
+    height: 100vh;
+}
+body{
+    overflow: hidden;
+}
+.menuPrincipal{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 240px;
+    height: 100vh;
+    transition: all 0.3s;
+}
+#btnMenuPrincipal{
+    width: 27px;
+    cursor: pointer;
+}
+.btnMenuPrincipal, .btnMenuItem{
+    cursor: pointer;
+}
+.btnMenuItens{
+    display: flex;
+    justify-content: center;
+    padding: 5px 15px;
+    margin: 5px;
+    width: 200px;
+    background-color: rgb(82, 121, 197);
+    color: white;
+    text-decoration: none;
+}
+.menuItens{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #248;
+    height: 100vh;
+}
+
+.ocultar{
+    left: -210px!important;
+}

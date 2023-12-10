@@ -1,0 +1,170 @@
+@charset "UTF-8";
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: none;
+    transition: all 0.5s;
+}
+:root{
+    --Azul-princ: #248;
+    --Fundo-Janela: #ccc;
+}
+.grid, .tituloGrid, .colunaTituloGrid, .dadosGrid, .linhaGrid, .colunaLinhaGrid, .topoJanela{
+    display: flex;
+}
+.grid{
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.tituloGrid{
+    color: #fff;
+    background-color: var(--Azul-princ);
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: max-content;
+}
+.colunaTituloGrid{
+    justify-content: center;
+    align-items: center;
+}
+.dadosGrid{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.linhaGrid{
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.colunaLinhaGrid{
+    justify-content: center;
+    align-items: center;
+}
+/*Topo da janela*/
+.topoJanela{
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 5px 0px 0px;
+}
+#btnAdd{
+    background-color: var(--Azul-princ);
+    border-radius: 50%;
+}
+/*================*/
+/* Janela novo */
+.popup, .tituloPopup, .corpoPopup, .rodapePopup, .janelaPopup, .campoForm, #telefones{
+    display: flex;
+}
+.popup{
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.507);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+}
+.tituloPopup{
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background-color: var(--Azul-princ);
+    border-radius: 5px 5px 0px 0px; 
+    width: 100%;
+}
+.corpoPopup{
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: var(--Fundo-Janela);
+    width: 100%;
+    padding: 5px;
+    flex-direction: column;
+}
+.rodapePopup{
+    background-color: var(--Azul-princ);
+    border-radius: 0px 0px 5px 5px; 
+    width: 100%;
+    padding: 5px;
+    justify-content: space-around;
+    
+}
+.btnJanelaOpera{
+    width: 30px;
+    cursor: pointer;
+}
+.janelaPopup{
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    flex-direction: column;
+}
+.btnComandoPopup{
+    background-color: rgb(23, 49, 102);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    width: 30%;
+    z-index: 1;
+}
+.campoForm{
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+.campoForm input, .campoForm select, .campoForm #telefones{
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+.ocultarJanela{
+    display: none;
+}
+.tel{
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 5px;
+    width: max-content;
+    color: #fff;
+    margin-left: 5px;
+}
+.delTel{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    margin-left: 5px;
+    width: 20px;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.numTel{
+    border: 1px solid transparent;
+}
+#telefones{
+    flex-direction: row;
+    border: 1px solid transparent;
+}
+.piscared{
+    animation: piscared 0.2s alternate infinite;
+}
+@keyframes piscared{
+    from{
+        border-color: transparent;
+    }
+    to{
+        border-color: red
+    }
+}
+/*================*/
