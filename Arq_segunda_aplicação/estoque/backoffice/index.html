@@ -6,8 +6,102 @@
     <title>Estoque - Backoffice</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../../cssGeral.css">
+    <!-- <style>
+        .cxmsgFundo, .tituloCx, .rodapeCx, .corpoCx{
+            display: flex;
+        }
+        .cxmsg{
+            width: 200px;
+        }
+        .cxmsgFundo{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100vh;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.603);
+            justify-content: center;
+            align-items: center;
+        }
+        .tituloCx{
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(0, 0, 255);
+            color: #fff;
+            border-radius: 10px 10px 0px 0px;
+            padding: 5px;
+        }
+        .corpoCx{
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #aaa;
+            color: black;
+            padding: 5px;
+
+        }
+        .rodapeCx{
+            justify-content: space-around;
+            align-items: center;
+            padding: 5px;
+            border-radius: 0px 0px 10px 10px;
+            background-color: rgb(0, 47, 255);
+        }
+        
+        /*Botôes*/
+        .btnCx{
+            background-color: rgb(170, 170, 170);
+            width: 50px;
+            padding: 5px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+        .btnCx:active{
+            padding: 4px;
+        }
+        #btn_Fechar{
+            background-color: red;
+            width: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #btnOk{
+
+        }
+        #btnSim{
+
+        }
+        #btnNao{
+
+        }
+        .ocultarJanela{
+            display: none;
+        }
+    </style> -->
 </head>
 <body>
+    <!-- <div id="cxmsgFundo" class="cxmsgFundo ocultarJanela"> 
+        <div class="cxmsg">
+            <div class="tituloCx">
+                <p>
+                    Titulo
+                </p>
+                <div>
+                    <img id="btnFechar" src="../../imgs/close.svg" alt="fechar">
+                </div>
+            </div>
+            <div class="corpoCx">
+                <p>Mensagem</p>
+            </div>
+            <div class="rodapeCx">
+                <button id="btOk" class="btnCx">OK</button>
+                <button id="btSim" class="btnCx">SIM</button>
+                <button id="btNao" class="btnCx">NÃO</button>
+            </div>
+        </div>
+    </div> -->
     <div id="menuPrincipal" class="menuPrincipal ocultar">
         <div class="menuItens ">
         <a href="../../estoque/backoffice/colaboradores/colaboradores.html" target="f_principal" class="btnMenuItens">Colaboradores</a>
@@ -32,6 +126,6 @@
     <div id="principal" class="principal">
         <iframe title="principal" name="f_principal" id="f_principal" class="f_principal" src="../backoffice/colaboradores/colaboradores.html"></iframe>
     </div>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>  

@@ -12,3 +12,11 @@ href.map((trg)=>{
         menuPrincipal.classList.toggle("ocultar")
     })
 })
+const endPointConfig = "http://localhost:8080"/*/`../../../config.json`*/
+fetch(endPointConfig)
+.then(res => res.json())
+.then(res => {
+    sessionStorage.setItem("Servidor_node_red", res.Servidor_node_red);
+    sessionStorage.setItem("Version", res.Version); 
+})
+.catch(erro => console.log(`erro(config): ${erro}`))
