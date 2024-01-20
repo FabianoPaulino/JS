@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque - Backoffice</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../../cssGeral.css">
+<body>
+    <div class="popup login">
+        <div id="loginFirst" class="janelaPopup">
+            <div class="tituloPopup">
+                <div>
+                    Login
+                </div>
+            </div>
+            <div class="corpoPopup">
+                <div class="campoForm">
+                    <label for="f_username">User</label>
+                    <input type="text" name="f_username" id="f_username">
+                </div>
+                <div class="campoForm">
+                    <label for="f_senha">Senha</label>
+                    <input type="text" name="f_senha" id="f_senha">
+                </div>
+            </div>
+            <div class="rodapePopup">
+                <button id="btn_login" type="button" class="btnComandoPopup">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup loginFirst ocultarJanela">
+        <div id="loginFirst" class="janelaPopup">
+            <div class="tituloPopup">
+                <div>
+                    Definir senha
+                </div>
+                <img src="../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
+            </div>
+            <div class="corpoPopup">
+                <div class="campoForm">
+                    <label for="f_usernameF">User</label>
+                    <input type="text" name="f_usernameFirst" id="f_usernameFirst" readonly>
+                </div>
+                <div class="campoForm">
+                    <label for="f_senhaFirst">Senha</label>
+                    <input type="text" name="f_senhaFirst" id="f_senhaFirst">
+                </div>
+                <div class="campoForm">
+                    <label for="f_senhaFirstR">Repita a senha</label>
+                    <input type="text" name="f_senhaFirstR" id="f_senhaFirstR">
+                </div>
+            </div>
+            <div class="rodapePopup">
+                <button id="btn_loginF" type="button" class="btnComandoPopup">Login</button>
+            </div>
+        </div>
+    </div>
+    <script src="login.js" type="module"></script>
+</body>
+</html>  

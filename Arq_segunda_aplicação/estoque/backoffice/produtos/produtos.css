@@ -1,0 +1,44 @@
+.cp1{
+    width: 50px;
+}
+.cp2{
+    width: 120px;
+}
+.cp3{
+    width: 120px;
+}
+.cp4{
+    width: 120px;
+}
+.cp5{
+    width: 120px;
+}
+.cp6{
+    width: 120px;
+}
+.cp7{
+    width: 145px;
+}
+.btnFuncoes{
+    width: 27px;
+    margin: 2px;
+    cursor: pointer;
+}
+.ocultarJanela{
+    display: none!important;
+}
+#caixaImagem{
+    display: flex;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    z-index: 7;
+}
+#Inventorio{
+    width: 21px;
+    height: 21px;
+}

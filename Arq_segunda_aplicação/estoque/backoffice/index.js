@@ -1,7 +1,9 @@
 
-var menuItens = document.querySelector(".menuItens")
-var menuPrincipal = document.querySelector("#menuPrincipal")
-var btnMenu = document.querySelector("#btnMenuPrincipal")
+const menuItens = document.querySelector(".menuItens")
+const menuPrincipal = document.querySelector("#menuPrincipal")
+const btnMenu = document.querySelector("#btnMenuPrincipal")
+const btnLogoff = document.querySelector("#btnLogoff")
+
 if(btnMenu != null){
     btnMenu.addEventListener("click", ()=>{
     menuPrincipal.classList.toggle("ocultar")})
@@ -12,11 +14,41 @@ href.map((trg)=>{
         menuPrincipal.classList.toggle("ocultar")
     })
 })
-const endPointConfig = "http://localhost:8080"/*/`../../../config.json`*/
-fetch(endPointConfig)
-.then(res => res.json())
-.then(res => {
-    sessionStorage.setItem("Servidor_node_red", res.Servidor_node_red);
-    sessionStorage.setItem("Version", res.Version); 
+const server = sessionStorage.getItem("Servidor_node_red")
+
+const snome =  sessionStorage.getItem("nome")
+const nome = document.querySelector("#nomeS")
+
+if(snome == "-1"){
+    location.href = "../backoffice/login.html"
+}
+nome.innerText +=` ${snome}`
+btnLogoff.addEventListener("click", ()=>{
+    location.href = "../backoffice/login.html"
 })
-.catch(erro => console.log(`erro(config): ${erro}`))
+let control = false
+document.addEventListener('mousemove', function(event) {
+    control = true
+});
+setInterval(()=>{
+    fetch(`${server}/verificaToken/${sessionStorage.getItem("token")}`)
+    .then(res => res.json())
+    .then((res)=>{
+        res.map((el)=>{
+            if(el.retorno ==  200){
+                location.href = "../backoffice/login.html"
+            }else{
+                if(control){
+                    fetch(`${server}/atualizaToken/${el.n_token_token}`)
+                    .then(res => {
+                        if(res.status == 200){
+                            console.log("ok")
+                            control = false
+                        }
+                    })
+                    .catch(res => console.log(res))
+                }
+            }
+        })  
+    }).catch(res => console.log(res))
+}, 5000)

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="produtos.css">
+    <link rel="stylesheet" href="../../../cssGeral.css">
+</head>
+<body>
+    <div id="topoJanela" class="topoJanela">
+        <h2>PRODUTOS</h2>
+        <div>
+            <img src="../../../imgs/add.svg" alt="adicionar" id="btnAdd">
+            <img src="../../../imgs/search.svg" alt="pesquisar" id="btnsrc">
+            <!-- <img src="../../../imgs/inventory.svg" alt="newProduto" id="btnNew"> -->
+            <img src="../../../imgs/list.svg" alt="listar" id="btnlist">
+        </div>
+    </div>
+    <div id="filtragem" class="campoFiltragem">
+        <div class="Filtragem">
+            <input type="text" name="f_filt" id="f_filt" class="inputFiltragem" placeholder="Filtragem">
+        </div>
+    </div>
+    <div class="janelaProduto">
+    </div>
+    <div id="grid" class="grid">
+        <div id="tituloGrid" class="tituloGrid">
+            <div class="colunaTituloGrid cp1">Cod</div>
+            <div class="colunaTituloGrid cp2">Descrição</div>
+            <div class="colunaTituloGrid cp3">Quantidade</div>
+            <div class="colunaTituloGrid cp4">Tipo</div>
+            <div class="colunaTituloGrid cp5">Fornecedor</div>
+            <div class="colunaTituloGrid cp6">Status</div>
+            <div class="colunaTituloGrid cp7">Operaçôes</div>
+        </div>
+        <div id="dadosGrigProduto" class="dadosGridProduto">
+        </div>
+        <div id="novoEstoque" class="popup ocultar_2">
+            <div class="janelaPopup">
+                <div class="tituloPopup">
+                    <div>
+                        Novo produto
+                    </div>
+                    <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
+                </div>
+                <div class="corpoPopup">
+                    <div class="campoForm">
+                        <label for="f_cod">Código do produto</label>
+                        <input type="text" name="f_cod" id="f_cod">
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_descProd">Descrição do produto</label>
+                        <input type="text" name="f_descProd" id="f_descProd">
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_qtdeProd">Quantidade do produto</label>
+                        <input type="number" min="0" max="9999" name="f_qtdeProd" id="f_qtdeProd">
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_tipoProd">Tipo do produto</label>
+                        <select name="f_tipoProd" id="f_tipoProd">
+                        </select>
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_fornProd">Fornecedor</label>
+                        <select name="f_fornProd" id="f_fornProd">
+                        </select>
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_statusProd">Status do produto</label>
+                        <select name="f_statusProd" id="f_statusProd">
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="campoForm">
+                        <label for="f_foto">Foto do produto</label>
+                        <input type="file" name="f_foto" id="f_foto" accept="image/png, image/jpeg, image/jpg">
+                        <div id="campoImagem">
+                            <img src="" alt="Imagem" id="img_foto" class="img_foto" onerror="this.classList.add('sem-imagem')">
+                        </div>
+                    </div>
+                </div>
+                <div class="rodapePopup">
+                    <button id="btnGravar" class="btnComandoPopup">Gravar</button>
+                    <button id="btnCancelar" class="btnComandoPopup">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Pesquisa" class="popup pesq ocultarJanela">
+        <div class="janelaPopup">
+            <div class="tituloPopup">
+                <div>
+                    Pesquisar
+                </div>
+                <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFecharPesq">
+            </div>
+            <div class="corpoPopup">
+                <div class="campoForm">
+                    <label for="f_nome">Tipo da pesquisa</label>
+                    <div class="campoRadio">
+                        <input type="radio" name="f_pesq" id="f_pesqid" checked>Código
+                    </div>
+                    <div class="campoRadio">
+                        <input type="radio" name="f_pesq" id="f_pesqnome">Fornecedor
+                    </div>
+                </div>
+                <div class="campoForm">
+                    <input type="text" name="f_pesq" id="f_pesq">
+                </div>
+            </div>
+            <div class="rodapePopup">
+                <button id="btnpesquisar" class="btnComandoPopup">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="movEstoque" class="popup Mov ocultarJanela">
+        <div class="janelaPopup">
+            <div class="tituloPopup">
+                <div>
+                    Movimentação de estoque
+                </div>
+                <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFecharMov">
+            </div>
+            <div class="corpoPopup">
+                <div class="campoForm">
+                    <label for="f_nome">Código do produto</label>
+                    <input type="text" name="f_codMov" id="f_codMov" readonly>
+                </div>
+                <div class="campoForm">
+                    <label for="f_nome">Descrição do produto</label>
+                    <input type="text" name="f_descMov" id="f_descMov" readonly>
+                </div>
+                <div class="campoForm">
+                    <label for="f_nome">Quantidade do produto</label>
+                    <input type="text" name="f_qtdeMov" id="f_qtdeMov" readonly>
+                </div>
+                <div class="campoForm">
+                    <label for="f_nome">Quantidade a ser registrado</label>
+                    <input type="number" value="0" min="0" name="f_setQtdeMov" id="f_setQtdeMov">
+                </div>
+            </div>
+            <div class="rodapePopup">
+                <button id="btnAddQtde" class="btnComandoPopup">Adicionar</button>
+                <button id="btnRemoverQtde" class="btnComandoPopup">Remover</button>
+                <button id="btnCancelarMov" class="btnComandoPopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="produtos.js" type="module"></script>
+    <script src="../../backoffice/index.js" type="module"></script>
+</body>
+</html>  

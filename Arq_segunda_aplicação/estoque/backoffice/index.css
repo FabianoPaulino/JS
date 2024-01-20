@@ -4,15 +4,17 @@
     align-items: center;
     background-color: #248;
     color: white;
-    height: 30px;
+    height: 50px;
 }
 #logo{
     display: block;
     position: absolute;
     left: 50%;
-    top: 1px;
+    top: 15px;
+    transform: translate(-50%);
 }
 #config{
+    display: flex;
     top: 1px;
     display: block;
     position: absolute;
@@ -20,7 +22,7 @@
 }
 .f_principal{
     width: 100%;
-    height: 100vh;
+    height: 95vh;
 }
 body{
     overflow: hidden;
@@ -37,7 +39,7 @@ body{
     transition: all 0.3s;
 }
 #btnMenuPrincipal{
-    width: 27px;
+    width: 40px;
     cursor: pointer;
 }
 .btnMenuPrincipal, .btnMenuItem{
@@ -65,4 +67,16 @@ body{
 
 .ocultar{
     left: -210px!important;
+}
+#set{
+    left: 80%;
+    display: flex;
+    position: absolute;
+    width: max-content;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px;
+    background-color: gray;
 }

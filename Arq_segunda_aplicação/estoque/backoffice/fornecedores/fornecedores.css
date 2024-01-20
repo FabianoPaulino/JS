@@ -13,8 +13,35 @@
 .c5{
     width: 150px;
 }
+
+.cf1{
+    width: 40%;
+    margin-left: 10px;
+}
+.cf2{
+    width: 40%;
+}
+.cf3{
+    width: 10%;
+}
 .btnFuncoes{
     width: 27px;
     margin: 2px;
     cursor: pointer;
+}
+#gridContatos{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+#btnContatoForms{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }

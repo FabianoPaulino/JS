@@ -42,6 +42,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    width: 100%;
+    height: 35px;
 }
 .colunaLinhaGrid{
     justify-content: center;
@@ -80,7 +82,7 @@
     margin: 5px;
 }
 .sem-imagem, .ocultar_2{
-    display: none;
+    display: none!important;
 }
 #f_foto{
     border: 2px solid transparent;
@@ -95,11 +97,18 @@
 }
 .btnFuncoes:active{
     padding: 2px;
+    
+}
+h2{
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 /*-------*/
 /*Topo da janela*/
 .topoJanela{
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     /* margin: 10px 5px 0px 0px; */
     position: sticky;
@@ -108,7 +117,7 @@
     top: 0px;
     background-color: #fff;
 }
-#btnAdd, #btnsrc, #btnlist{
+#btnAdd, #btnsrc, #btnlist, #btnNew{
     background-color: var(--Azul-princ);
     border-radius: 50%;
     margin-right: 15px;
@@ -119,7 +128,7 @@
 .popup, .tituloPopup, .corpoPopup, .rodapePopup, .janelaPopup, .campoForm, #telefones, #campoImagem, .campoFiltragem, .campoRadio{
     display: flex;
 }
-.popup{
+.popup, .caixaPop{
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.507);
@@ -138,6 +147,7 @@
     background-color: var(--Azul-princ);
     border-radius: 5px 5px 0px 0px; 
     width: 100%;
+    height: 30px;
 }
 .corpoPopup{
     justify-content: flex-start;
@@ -184,7 +194,6 @@
     height: 25px;
     margin-bottom: 7px;
     border-radius: 10px;
-    
 }
 .campoFiltragem{
     justify-content: center;
@@ -246,3 +255,42 @@ input{
 }
 
 /*================*/
+/*----------------*/
+.selecionado{
+    background-color: rgb(80, 80, 80)!important;
+    color: white;
+}
+.caixaTel{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(236, 236, 236);
+    border: 3px solid blue;
+    border-radius: 5px;
+    padding: 5px;
+}
+.caixaGeral{
+    position: fixed;
+    display: flex;
+    width: 30%;
+    height: 300px;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.caixaPop{
+    z-index: 7;
+}
+#btnContatoForms{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+.caixaTitulo{
+    background-color: blue;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}

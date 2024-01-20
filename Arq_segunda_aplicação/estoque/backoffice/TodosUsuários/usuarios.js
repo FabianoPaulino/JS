@@ -3,13 +3,13 @@ const editar = `
         <div class="janelaPopup">
             <div class="tituloPopup">
                 <div>
-                    Editar colaborador
+                    Editar usuário
                 </div>
                 <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
             </div>
             <div class="corpoPopup">
                 <div class="campoForm">
-                    <label for="f_nome">Colaborador</label>
+                    <label for="f_nome">Usuário</label>
                     <input type="text" name="f_nome" id="f_nome" value="">
                 </div>
                 <div class="campoForm">
@@ -37,25 +37,22 @@ const show = `
                 <div class="janelaPopup">
                     <div class="tituloPopup">
                         <div>
-                            Novo colaborador
+                            Novo usuário
                         </div>
                         <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
                     </div>
                     <div class="corpoPopup">
                         <div class="campoForm">
-                            <label for="f_nome">Colaborador</label>
+                            <label for="f_nome">Usuário</label>
                             <input type="text" name="f_nome" id="f_nome">
                         </div>
                         <div class="campoForm">
-                            <label for="f_nome">Usernamer</label>
-                            <input type="text" name="f_user" id="f_user">
+                            <label for="f_tipo">Tipo de usuário</label>
+                            <select name="f_tipo" id="f_tipo">
+                            </select>
                         </div>
                         <div class="campoForm">
-                            <label for="f_nome">Senha</label>
-                            <input type="password" name="f_senha" id="f_senha">
-                        </div>
-                        <div class="campoForm">
-                            <label for="f_status">Status do colaborador</label>
+                            <label for="f_status">Status do usuário</label>
                             <select name="f_status" id="f_status">
                                 <option value="A">Ativo</option>
                                 <option value="I">Inativo</option>
@@ -82,11 +79,7 @@ const show = `
                 </div>
             </div>`
 import {Janela} from "../Lista/Lista.js"
-const janela =  new Janela(".Janela", "colaboraador", editar, show, 1).chamada(null)
-//Botão pesquisar
-const pesquisa = document.querySelector("#btnsrc").addEventListener("click", ()=>{
-    const janela = new Janela(".Janela", "colaborador", editar, show, 1).pesquisa()
-})
+const janela =  new Janela(".Janela", "usuário", editar, show, 0).chamada(null)
 //Botão Listar
 const listar = document.querySelector("#btnlist").addEventListener("click", ()=>{
     location.reload(true);

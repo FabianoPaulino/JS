@@ -4,17 +4,17 @@ const show =
     <div class="janelaPopup">
         <div class="tituloPopup">
             <div>
-                Novo fornecedor
+                Novo super usuário
             </div>
             <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
         </div>
         <div class="corpoPopup">
             <div class="campoForm">
-                <label for="f_nome">Fornecedor</label>
+                <label for="f_nome">Super usuário</label>
                 <input type="text" name="f_nome" id="f_nome">
             </div>
             <div class="campoForm">
-                <label for="f_status">Status do fornecedor</label>
+                <label for="f_status">Status do super usuário</label>
                 <select name="f_status" id="f_status">
                     <option value="A">Ativo</option>
                     <option value="I">Inativo</option>
@@ -33,12 +33,6 @@ const show =
                 <div id="telefones">
                 </div>
             </div>
-            <div class="campoForm">
-                <label for="f_cont">Contatos</label>
-                <button id="btnContatoForms" class="btnComandoPopup">Listar administradores</button>
-                <div id="gridContatos">
-                </div>
-            </div>
         </div>
         <div class="rodapePopup">
             <button id="btnGravar" class="btnComandoPopup">Gravar</button>
@@ -51,13 +45,13 @@ const editar =
         <div class="janelaPopup">
             <div class="tituloPopup">
                 <div>
-                    Editar fornecedor
+                    Editar super usuário
                 </div>
                 <img src="../../../imgs/close.svg" alt="close" class="btnJanelaOpera" id="btnFechar">
             </div>
             <div class="corpoPopup">
                 <div class="campoForm">
-                    <label for="f_nome">Fornecedor</label>
+                    <label for="f_nome">Super usuário</label>
                     <input type="text" name="f_nome" id="f_nome" value="">
                 </div>
                 <div class="campoForm">
@@ -73,11 +67,6 @@ const editar =
                     <div id="telefones">
                     </div>
                 </div>
-                <div class="campoForm">
-                    <label for="f_cont">Contatos</label>
-                    <div id="gridContatos">
-                    </div>
-                </div>
             </div>
             <div class="rodapePopup">
                 <button id="btneditar" class="btnComandoPopup">Confirmar</button>
@@ -85,13 +74,13 @@ const editar =
             </div>
         </div>
     </div>`
- 
 import {Janela} from "../Lista/Lista.js"
-const janela =  new Janela(".Janela", "fornecedor", editar, show, 15).chamada(null)
-//const janelaAdm =  new Janela(".Janela", "fornecedor", "", "", 10).pesquisa(true)
+const janela =  new Janela(".Janela", "super usuário", editar, show, 5).chamada(null)
 //Botão pesquisar
+const pesquisa = document.querySelector("#btnsrc").addEventListener("click", ()=>{
+    const janela = new Janela(".Janela", "super usuário", editar, show, 5).pesquisa()
+})
 //Botão Listar
 const listar = document.querySelector("#btnlist").addEventListener("click", ()=>{
     location.reload(true);
 })
-//botão listar contatos

@@ -5,7 +5,6 @@ class cxmsg {
     }
     static mostrar = (config)=>{
         this.config = config
-        console.log(config.titulo)
         const style = document.createElement('style')
         style.setAttribute("id", "stUm")
         style.innerHTML = `
